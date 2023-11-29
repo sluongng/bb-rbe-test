@@ -1,8 +1,12 @@
 genrule(
     name = "temp",
-    outs = ["temp.txt"],
+    outs = [
+        "1.txt",
+        "2.txt",
+    ],
     cmd = """
-    touch $@
+    touch $(execpath 1.txt)
+    exit 0
     """,
     exec_properties = {
         # "workload-isolation-type": "firecracker",
